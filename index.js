@@ -18,11 +18,33 @@ function moveDodgerLeft() {
     };
 };
 
+function moveDodgerUp() {
+    let topNumbers = dodger.style.bottom.replace("px", "");
+    let up = parseInt(topNumbers, 10);
+
+    if (up >= 0) {
+        dodger.style.bottom = `${up +10}px`;
+    };
+};
+
+function moveDodgerDown() {
+    let bottomNumbers = dodger.style.bottom.replace("px", "");
+    let down = parseInt(bottomNumbers, 10);
+
+    if (down <= 360)
+        dodger.style.bottom = `${down - 10}px`
+}
+
 document.addEventListener('keydown',function(e) {
     if (e.key === "ArrowLeft") {
         moveDodgerLeft();
-        console.log(e.key)
+
     } else if (e.key === "ArrowRight") {
         moveDodgerRight();
+
+    } else if (e.key === "ArrowUp") {
+        moveDodgerUp();
+    } else if (e.key === "ArrowDown") {
+        moveDodgerDown();
     };
 });
